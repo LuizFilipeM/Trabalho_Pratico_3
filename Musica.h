@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 
+
 typedef struct sequencia{
     int *notas, tamanho;
 } sequencia;
