@@ -1,4 +1,5 @@
-#include "Musica.h"
+#include "BMH.h"
+
 
 typedef struct mascara{
     int masc;
