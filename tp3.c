@@ -1,9 +1,12 @@
 #include "ShiftAndExato.h"
 
-int main(char *argv[], int argc){
+
+int main(int argc, char *argv[]){
+    
     int a, metodo = 0;
     sequencia arranjo1, arranjo2;
     FILE *file = fopen("saida.txt", "w");
+    
     fclose(file);
     file = fopen(argv[1], "r");
     if(argv[2] == NULL) printf("Metodo nao especificado\n");
@@ -12,6 +15,7 @@ int main(char *argv[], int argc){
         printf("Erro, entrada do arquivo incorreta\n");
         return 0;
     }
+    
 
     /*processo dos metodos:
     metodo 1: Forca Bruta
