@@ -1,4 +1,4 @@
-#include "Musica.h"
+#include "BMH.h"
 
 int BMH(sequencia *arranjo1, sequencia *arranjo2){
 
