@@ -1,5 +1,5 @@
 #include "ShiftAndExato.h"
-
+#include "BMH.h"
 
 int main(int argc, char *argv[]){
     
