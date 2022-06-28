@@ -1,5 +1,5 @@
 #ifndef BMH_H
-#define BMH
+#define BMH_H
 #include "Musica.h"
 
 int BMH(sequencia*, sequencia*);
