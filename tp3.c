@@ -1,7 +1,17 @@
 #include "ShiftAndExato.h"
 #include "BMH.h"
+#include <sys/time.h>
+#include <time.h>
+
 
 int main(int argc, char *argv[]){
+    
+    // definindo o tempo de execução
+    struct timeval start, end;
+    float tmp_exec;
+    gettimeofday(&start, NULL);
+    
+    
     
     int a, metodo = 0;
     sequencia arranjo1, arranjo2;
@@ -61,5 +71,10 @@ int main(int argc, char *argv[]){
     //fim dos metodos
     
     fclose(file);
+    
+    // captura do tempo de execução
+    gettimeofday(&end, NULL);
+    tmp_exec = end.tv_sec - start.tv_sec;
+    printf("\ntempo de: %.4f\n", tmp_exec);
     return 0;
 }
