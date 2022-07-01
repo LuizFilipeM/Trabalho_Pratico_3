@@ -15,10 +15,7 @@ int main(int argc, char *argv[]){
     
     int a, metodo = 0;
     sequencia arranjo1, arranjo2;
-    FILE *file = fopen("saida.txt", "w");
-    
-    fclose(file);
-    file = fopen(argv[1], "r");
+    FILE *file = fopen(argv[1], "r");
     if(argv[2] == NULL) printf("Metodo nao especificado\n");
     else metodo = atoi(argv[2]);
     if(file == NULL){
@@ -59,7 +56,10 @@ int main(int argc, char *argv[]){
     }
     if(metodo == 3){
         while(1){
+            //printf("\naqui");
         leitor_de_arquivo(&arranjo1, &arranjo2, file);
+        
+
         //inserir aqui a funcao BMH, ex: a = BMH(&arranjo1, &arranjo2);
         a = BMH(&arranjo1, &arranjo2);
         if(a == -7) break;
