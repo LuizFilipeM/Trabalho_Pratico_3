@@ -3,4 +3,6 @@
 #include "Musica.h"
 
 int BMH(sequencia*, sequencia*);
+int* faz_tab_desloc(sequencia*, int *);
+
 #endif
