@@ -8,7 +8,6 @@ int main(int argc, char *argv[]){
     
     // definindo o tempo de execução
     struct timeval start, end;
-    float tmp_exec;
     gettimeofday(&start, NULL);
     
     
@@ -74,7 +73,7 @@ int main(int argc, char *argv[]){
     
     // captura do tempo de execução
     gettimeofday(&end, NULL);
-    tmp_exec = end.tv_sec - start.tv_sec;
-    printf("\ntempo de: %.4f\n", tmp_exec);
+    
+    printf("\ntempo de: %.4f\n", (end->tv_sec - start->tv_sec) + 1e-6*(end->tv_usec - start->tv_usec));
     return 0;
 }
