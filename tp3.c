@@ -74,6 +74,6 @@ int main(int argc, char *argv[]){
     // captura do tempo de execução
     gettimeofday(&end, NULL);
     
-    printf("\ntempo de: %.4f\n", (end->tv_sec - start->tv_sec) + 1e-6*(end->tv_usec - start->tv_usec));
+    printf("\ntempo de: %.4f\n", (end.tv_sec - start.tv_sec) + 1e-6*(end.tv_usec - start.tv_usec));
     return 0;
 }
