@@ -14,7 +14,7 @@ int BMH(sequencia *arranjo1, sequencia *arranjo2){
 
     int *tab_desloc;
     int tab_aux[tam_alfabet];
-    tab_desloc = pre_proces(arranjo2, tab_aux); // inicializa a tabela de deslocamento do metodo BMH
+    tab_desloc = pre_proces(arranjo2, tab_aux); // inicializa a tabela de deslocamento pelo metodo BMH
     
     int i = (arranjo2->tamanho), j, k;
     int potencia_ant, potencia_atual;
