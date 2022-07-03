@@ -3,13 +3,16 @@
 //lê o tamanho e as notas de dois arranjos de notas
 void leitor_de_arquivo(sequencia *arranjo1, sequencia *arranjo2, FILE* file){
     int n = 0;
-    char Nota[2], leitor[500];
+    char Nota[2];
+    size_t len = 0;
+    ssize_t r;
     fscanf(file, "%d %d", &arranjo1->tamanho, &arranjo2->tamanho);
     if((arranjo1->tamanho == 0) && (arranjo2->tamanho == 0)) return;
+    char *leitor = NULL;
     arranjo1->notas = (int*) malloc(arranjo1->tamanho * sizeof(int));
     arranjo2->notas = (int*) malloc(arranjo2->tamanho * sizeof(int));
-    while(fgets(leitor, 500, file) != NULL){
-        for(int i = 0; i < 500; i++){
+    while((r = getline(&leitor, &len, file)) != -1){
+        for(int i = 0; i < len; i++){
             if((leitor[i] == '\n') || (leitor[i] == '\0')) break; //para a busca na linha
             else if(leitor[i] == ' ') continue;
             else{
@@ -80,8 +83,8 @@ void leitor_de_arquivo(sequencia *arranjo1, sequencia *arranjo2, FILE* file){
         if(n == arranjo1->tamanho) break;
     }
     n = 0;
-    while(fgets(leitor, 500, file) != NULL){
-        for(int i = 0; i < 500; i++){
+    while((r = getline(&leitor, &len, file)) != -1){
+        for(int i = 0; i < len; i++){
             if((leitor[i] == '\n') || (leitor[i] == '\0')) break; //para a busca na linha
             else if(leitor[i] == ' ') continue;
             else{
@@ -151,6 +154,7 @@ void leitor_de_arquivo(sequencia *arranjo1, sequencia *arranjo2, FILE* file){
         }
         if(n == arranjo2->tamanho) break;
     }
+    free(leitor);
 }
 
 //libera a memória alocada pelo arranjo de notas
@@ -210,7 +214,7 @@ int comparador(int Nota1, int Nota2){
 int forca_bruta(sequencia *arranjo1, sequencia *arranjo2){
     int potencia_anterior, potencia_atual;
     if((arranjo1->tamanho == 0) && (arranjo2->tamanho == 0)) return -7;
-    for(int i = 0; i < arranjo1->tamanho; i++){
+    for(int i = 0; ((i < arranjo1->tamanho) && (i <= arranjo1->tamanho - arranjo2->tamanho)); i++){
         potencia_anterior = -6;
         for(int j = 0; j < arranjo2->tamanho; j++){
             potencia_atual = comparador(arranjo1->notas[i+j], arranjo2->notas[j]);
