@@ -10,6 +10,7 @@ int main(int argc, char *argv[]){
     struct timeval start, end;
     gettimeofday(&start, NULL);
 
+    
     int a, metodo = 0;
     sequencia arranjo1, arranjo2;
     FILE *file = fopen("saida.txt", "w");
@@ -23,9 +24,10 @@ int main(int argc, char *argv[]){
     }
 
     /*processo dos metodos:
-    metodo 1: Forca Bruta
-    metodo 2: ShiftAndExato
-    metodo 3: BMH
+        metodo 1: Forca Bruta;
+        metodo 2: ShiftAndExato;
+        metodo 3: BMH;
+        metodo 4: KMP.
     */
     if(metodo == 1){
         while(1){
@@ -67,7 +69,6 @@ int main(int argc, char *argv[]){
         leitor_de_arquivo(&arranjo1, &arranjo2, file);
         D = cria_dfa(&arranjo1, &arranjo2, D);
         a = KMP(&arranjo1, D, arranjo2.tamanho);
-        //inserir aqui a funcao BMH, ex: a = BMH(&arranjo1, &arranjo2);
         if(a == -7) break;
         gravador(a);
         limpeza_dfas(D , arranjo1.tamanho);
