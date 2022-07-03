@@ -28,7 +28,9 @@ int BMH(sequencia *arranjo1, sequencia *arranjo2){
         potencia_atual = comparador(arranjo1->notas[k-1], arranjo2->notas[j-1]);
         potencia_ant = potencia_atual;
         
-        while (potencia_ant == potencia_atual && j > 0 && potencia_atual != -6){
+        // compara as potencias atual e anterior verificando se a sequencia mantém a diferença
+        // de meios tons em toda a sequencia, o que caracteriza a mesma melodia em outro tom
+        while (potencia_ant == potencia_atual && j > 0 && potencia_atual != -6){ 
             k--;
             j--;
             if (j == 0) return k;
